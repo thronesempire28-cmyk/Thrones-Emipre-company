@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Throne Empire | Ultra-Fast Games, Apps & Sites</title>
+    <title>Throne Empire | Web, Apps & Games</title>
     <style>
-        /* Base Setup & Cyber-Dark Aesthetics */
+        /* Base Setup & Smooth Scrolling */
         * {
             margin: 0;
             padding: 0;
@@ -18,27 +18,14 @@
         }
 
         body {
-            background-color: #060609; /* Deep technical black */
+            background-color: #050508;
             color: #e2e2e9;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* LED Animation Keyframes */
-        @keyframes dynamic-glow {
-            0% { border-color: #00f3ff; box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); }
-            50% { border-color: #ff0077; box-shadow: 0 0 15px rgba(255, 0, 119, 0.4); }
-            100% { border-color: #00f3ff; box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); }
-        }
-
-        @keyframes text-gold-glow {
-            0% { text-shadow: 0 0 8px rgba(212, 175, 55, 0.5); color: #d4af37; }
-            50% { text-shadow: 0 0 15px rgba(0, 243, 255, 0.7); color: #00f3ff; }
-            100% { text-shadow: 0 0 8px rgba(212, 175, 55, 0.5); color: #d4af37; }
-        }
-
-        /* Fixed Navigation Header with neon accent strip */
+        /* Fixed Navigation Header */
         header {
-            background-color: #0a0a0f;
+            background-color: rgba(6, 6, 9, 0.95);
             padding: 20px 50px;
             display: flex;
             justify-content: space-between;
@@ -47,8 +34,8 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid #00f3ff;
-            box-shadow: 0 4px 20px rgba(0, 243, 255, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
@@ -60,181 +47,163 @@
         }
 
         .logo span {
-            animation: text-gold-glow 4s infinite;
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
-        /* Hero Splash Banner */
-        .hero {
-            height: 100vh;
-            background: radial-gradient(circle at center, #11111a 0%, #050508 100%);
+        /* Quick Navigation Links */
+        .nav-links a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #fff; }
+
+        /* Full Screen Section Layout */
+        .page-section {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 100px 20px;
             position: relative;
+            border-bottom: 2px solid #111;
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 15px;
+        /* Typography & Layout Elements */
+        .page-section h1 {
+            font-size: 4.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .page-section p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            color: #b0b0bb;
+            margin-bottom: 40px;
+        }
+
+        .grid-features {
+            display: flex;
+            gap: 30px;
+            max-width: 1000px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 280px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
             color: #fff;
         }
 
-        .hero h1 span {
-            animation: text-gold-glow 5s infinite;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 35px;
-            max-width: 800px;
-            color: #b0b0bb;
-        }
-
-        /* LED Live Operations Status */
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            background: #0f0f16;
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            border: 1px solid #00f3ff;
-            box-shadow: 0 0 12px rgba(0, 243, 255, 0.2);
-        }
-
-        .status-pulse {
-            width: 8px;
-            height: 8px;
-            background-color: #00f3ff;
-            border-radius: 50%;
-            margin-right: 10px;
-            box-shadow: 0 0 10px #00f3ff;
-        }
-
-        /* High-Velocity Metrics Board */
-        .metrics-bar {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 15px 40px;
-            border-radius: 8px;
-            border: 1px solid #1a1a26;
-        }
-
-        .metric-item strong {
-            display: block;
-            font-size: 1.8rem;
-            color: #00f3ff;
-        }
-
-        .metric-item span {
-            font-size: 0.85rem;
-            color: #888;
-            text-transform: uppercase;
-        }
-
-        /* Premium Floating CTA Button */
-        .cta-btn {
+        /* Scroll indicator arrow button */
+        .scroll-btn {
             display: inline-block;
             background: transparent;
             color: #fff;
-            padding: 15px 45px;
+            padding: 12px 35px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* SECTION 1: WEB (Cyan LED Theme) */
+        #web-division {
+            background: radial-gradient(circle at center, #0a141d 0%, #050508 100%);
+        }
+        #web-division h1 {
+            color: #00f3ff;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+        }
+        #web-division .scroll-btn {
+            border: 2px solid #00f3ff;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        }
+        #web-division .scroll-btn:hover {
+            background: #00f3ff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.8);
+        }
+        #web-division .feature-box:hover {
+            border-color: #00f3ff;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+        }
+
+        /* SECTION 2: APPS (Pink LED Theme) */
+        #app-division {
+            background: radial-gradient(circle at center, #1a0a14 0%, #050508 100%);
+        }
+        #app-division h1 {
+            color: #ff0077;
+            text-shadow: 0 0 20px rgba(255, 0, 119, 0.6);
+        }
+        #app-division .scroll-btn {
             border: 2px solid #ff0077;
             box-shadow: 0 0 15px rgba(255, 0, 119, 0.3);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
-
-        .cta-btn:hover {
-            background-color: #ff0077;
+        #app-division .scroll-btn:hover {
+            background: #ff0077;
             color: #fff;
-            box-shadow: 0 0 30px rgba(255, 0, 119, 0.7);
-            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(255, 0, 119, 0.8);
+        }
+        #app-division .feature-box:hover {
+            border-color: #ff0077;
+            box-shadow: 0 0 15px rgba(255, 0, 119, 0.2);
         }
 
-        /* Core Section Architecture */
-        .section {
-            padding: 120px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
+        /* SECTION 3: GAMES (Gold LED Theme) */
+        #game-division {
+            background: radial-gradient(circle at center, #16120a 0%, #050508 100%);
         }
-
-        .section h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            color: #fff;
+        #game-division h1 {
+            color: #d4af37;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
         }
-
-        .section-desc {
-            color: #999;
-            font-size: 1.2rem;
-            max-width: 850px;
-            margin: 0 auto 60px auto;
+        #game-division .scroll-btn {
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
-
-        /* LED Grid Component Matrices */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
+        #game-division .scroll-btn:hover {
+            background: #d4af37;
+            color: #000;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
         }
-
-        .card {
-            background: #0d0d14;
-            padding: 45px 35px;
-            border-radius: 8px;
-            text-align: left;
-            border: 1px solid #1a1a26;
-            transition: all 0.3s ease;
-        }
-
-        /* Interactive LED Response Matrix */
-        .card:hover {
-            transform: translateY(-5px);
-            animation: dynamic-glow 4s infinite ease-in-out;
-        }
-
-        .card h3 {
-            color: #fff;
-            margin-bottom: 15px;
-            font-size: 1.6rem;
-            letter-spacing: 0.5px;
-        }
-
-        .card p {
-            color: #a0a0b0;
-            font-size: 1rem;
-        }
-
-        .highlight-box {
-            background: #09090e;
-            border-top: 1px solid #151522;
-            border-bottom: 1px solid #151522;
-            width: 100%;
+        #game-division .feature-box:hover {
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
         /* Footer */
         footer {
-            background-color: #040406;
+            background-color: #030305;
             color: #444;
             text-align: center;
-            padding: 45px 20px;
+            padding: 40px 20px;
             font-size: 0.9rem;
             border-top: 1px solid #111;
         }
@@ -242,92 +211,76 @@
 </head>
 <body>
 
-    <!-- Header Navigation Bar -->
+    <!-- Header Navigation -->
     <header>
         <div class="logo">Throne <span>Empire</span></div>
+        <div class="nav-links">
+            <a href="#web-division">Websites</a>
+            <a href="#app-division">Apps</a>
+            <a href="#game-division">Games</a>
+        </div>
     </header>
 
-    <!-- Hero Showcase View -->
-    <section class="hero">
-        <div class="status-badge">
-            <div class="status-pulse"></div> High-Speed Pipeline Active
-        </div>
-        <h1>Throne <span>Empire</span></h1>
-        <p>Elite engineering meets elite aesthetics. We build top-tier mobile games, powerful web ecosystems, and immersive apps with rapid deployment cycles and world-class structural design.</p>
+    <!-- PAGE 1: WEBSITES (Cyan Theme) -->
+    <section id="web-division" class="page-section">
+        <h1>Next-Gen Websites</h1>
+        <p>We build ultra-fast, incredibly cool web ecosystems. No templates, no lag. Just blazing load speeds, pristine custom styling, and modern responsive layouts that keep users hooked from the second they land.</p>
         
-        <!-- Live studio capability display metrics -->
-        <div class="metrics-bar">
-            <div class="metric-item">
-                <strong>40% +</strong>
-                <span>Faster Launch</span>
+        <div class="grid-features" style="margin-bottom: 50px;">
+            <div class="feature-box">
+                <h3>⚡ Sub-Second Speeds</h3>
+                <p>We program clean, optimized code structures so your website boots instantly on every device, giving your brand the speed advantage.</p>
             </div>
-            <div class="metric-item">
-                <strong>100%</strong>
-                <span>Pixel Perfect</span>
-            </div>
-            <div class="metric-item">
-                <strong>Zero</strong>
-                <span>Lag Architecture</span>
+            <div class="feature-box">
+                <h3>🎨 Premium Visuals</h3>
+                <p>Packed with sleek hover effects, dark-mode styling, and breathtaking custom layouts that establish your absolute digital presence.</p>
             </div>
         </div>
 
-        <a href="#about-us" class="cta-btn">Review Our Capabilities</a>
+        <a href="#app-division" class="scroll-btn">Scroll to App Infrastructure ↓</a>
     </section>
 
-    <!-- Why Us Section / Speed & Execution Focus -->
-    <section id="about-us" class="section">
-        <h2>Built Faster. Designed Better.</h2>
-        <p class="section-desc">
-            At Throne Empire, we delete project friction. We understand that in the modern digital race, speed is armor and premier visual aesthetics are absolute power. We construct flawless consumer-facing engines on accelerated schedules.
-        </p>
-
-        <div class="grid">
-            <div class="card">
-                <h3>⚡ Rapid Deployment</h3>
-                <p>We deploy optimized code aggressively fast. Our streamlined production pipelines bypass corporate drag, getting your mobile game, business application, or web platform built and live ahead of schedule.</p>
+    <!-- PAGE 2: MOBILE APPS (Pink Theme) -->
+    <section id="app-division" class="page-section">
+        <h1>Powerful Mobile Apps</h1>
+        <p>From complex operational software to highly dynamic user applications, we build iOS and Android ecosystems that work smoothly. Fast architecture, secure databases, and zero drag under heavy client traffic.</p>
+        
+        <div class="grid-features" style="margin-bottom: 50px;">
+            <div class="feature-box">
+                <h3>🛠️ High Performance</h3>
+                <p>We run cross-platform logic that ensures flawless app execution, beautiful UI workflows, and efficient background computing.</p>
             </div>
-            <div class="card">
-                <h3>💎 Masterclass Design</h3>
-                <p>We craft high-fidelity UI/UX layouts wrapped in striking visual identities. Inspired by high-tech hardware, our modern responsive structures drop users straight into an elite digital space.</p>
-            </div>
-            <div class="card">
-                <h3>🛠️ Supreme Architecture</h3>
-                <p>Beautiful looks mean nothing without serious power. Our apps, sites, and software backends are built to handle huge user traffic demands smoothly, without slowing down or breaking under pressure.</p>
+            <div class="feature-box">
+                <h3>🔒 Bulletproof Data</h3>
+                <p>We wrap all custom application structures in highly secure, rapid data-handling pipelines to protect your users fully.</p>
             </div>
         </div>
+
+        <a href="#game-division" class="scroll-btn">Scroll to Game Studio ↓</a>
     </section>
 
-    <!-- Services Render Matrix -->
-    <section id="services" class="section highlight-box" style="max-width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2>What We Accelerate</h2>
-            <p class="section-desc">Premium technological systems built, polished, and shipped with surgical precision.</p>
-            
-            <div class="grid">
-                <!-- Service 1: Games -->
-                <div class="card">
-                    <h3 style="color: #00f3ff;">Immersive Games</h3>
-                    <p>We construct highly polished 2D and 3D cross-platform games. By blending responsive player controls, advanced engine physics, and vivid environments, we create unforgettable interactive games built to retain active audiences.</p>
-                </div>
-                
-                <!-- Service 2: Apps -->
-                <div class="card">
-                    <h3 style="color: #ff0077;">High-Yield Applications</h3>
-                    <p>Need custom application systems for iOS or Android? We build sleek mobile software designed to resolve workflows, maximize customer utility, and protect user data under ironclad digital security frameworks.</p>
-                </div>
-                
-                <!-- Service 3: Sites -->
-                <div class="card">
-                    <h3 style="color: #d4af37;">Next-Gen Web Ecosystems</h3>
-                    <p>We program completely custom, high-converting corporate sites, expansive online retail matrices, and web-native tools that boot up instantly, scale fluidly, and adjust flawlessly to every screen size.</p>
-                </div>
+    <!-- PAGE 3: GAME DEVELOPMENT (Gold Theme) -->
+    <section id="game-division" class="page-section">
+        <h1>Elite Game Studio</h1>
+        <p>Enter the gaming sector of Throne Empire. We architect deep, addictive 2D and 3D cross-platform games. Built with advanced physics engines, rapid control responses, and immersive interactive graphics.</p>
+        
+        <div class="grid-features" style="margin-bottom: 50px;">
+            <div class="feature-box">
+                <h3>🎮 Smooth Physics</h3>
+                <p>We eliminate frame-drops and lag, bringing complex gameplay mechanics, smooth action loops, and optimized rendering engines to life.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🌟 Total Engagement</h3>
+                <p>Crafting gorgeous virtual environments, robust online multiplayer setups, and game loops that active players never want to close.</p>
             </div>
         </div>
+
+        <a href="#web-division" class="scroll-btn" style="border-color: #fff;">Back to Top ↑</a>
     </section>
 
-    <!-- Footer Systems Information -->
+    <!-- Footer System -->
     <footer>
-        <p>&copy; 2026 Throne Empire Studio. Engineered for high velocity, built with supreme design metrics.</p>
+        <p>&copy; 2026 Throne Empire. Fast Code. Good Design. Maximum Operational Velocity.</p>
     </footer>
 
 </body>
