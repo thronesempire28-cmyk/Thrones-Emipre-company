@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://samuellion07841w-hue.github.io/stock-website/sitemap.xml
+Sitemap: https://thronesempire28-hue.github.io/Thrones-Empire-Company/sitemap.xml
