@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Throne Empire | Next-Gen Web, Apps & Games</title>
     
-    <!-- 👑 THIS IS THE FAVICON LINK THAT ADDS THE LOGO TO THE VERY TOP BROWSER TAB -->
     <link rel="icon" type="image/png" href="https://img.icons8.com/neon/96/crown.png">
     
     <style>
@@ -31,7 +30,7 @@
         /* Fixed Premium Navigation Header */
         header {
             background-color: rgba(4, 4, 7, 0.92);
-            padding: 18px 40px;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -75,7 +74,13 @@
             color: #d4af37;
         }
 
-        /* Navigation Links */
+        /* Navigation Links & Actions Wrapper */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
         .nav-links a {
             color: #999;
             text-decoration: none;
@@ -90,6 +95,33 @@
             color: #fff; 
         }
 
+        /* Premium Nav Hire Button */
+        .hire-nav-btn {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+            color: #d4af37;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hire-nav-btn:hover {
+            background: #d4af37;
+            color: #040407;
+            border-color: #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+
         /* Full Height Page Layout Blocks */
         .page-section {
             min-height: 100vh;
@@ -98,7 +130,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 24px;
+            padding: 140px 24px 100px 24px;
             position: relative;
         }
 
@@ -126,7 +158,7 @@
             width: 100%;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .feature-box {
@@ -160,6 +192,15 @@
             line-height: 1.6;
         }
 
+        /* Button Group Utilities */
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         /* Premium Navigation Anchor Buttons */
         .scroll-btn {
             display: inline-block;
@@ -176,6 +217,25 @@
             cursor: pointer;
         }
 
+        /* High-Impact Main Hire Button */
+        .main-hire-btn {
+            display: inline-block;
+            color: #fff;
+            padding: 14px 38px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .main-hire-btn:hover {
+            transform: translateY(-3px);
+        }
+
         /* DIVISION THEMES */
         /* SECTION 1: WEBSITES (Neon Cyan Theme) */
         #web-division {
@@ -186,12 +246,18 @@
             text-shadow: 0 0 25px rgba(0, 243, 255, 0.5);
         }
         #web-division .scroll-btn {
-            border: 2px solid #00f3ff;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
         #web-division .scroll-btn:hover {
-            background: #00f3ff;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+        }
+        #web-division .main-hire-btn {
+            background: linear-gradient(135deg, #00f3ff, #00a8ff);
             color: #040407;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+        #web-division .main-hire-btn:hover {
             box-shadow: 0 0 35px rgba(0, 243, 255, 0.7);
         }
         #web-division .feature-box:hover {
@@ -212,12 +278,18 @@
             text-shadow: 0 0 25px rgba(255, 0, 119, 0.5);
         }
         #app-division .scroll-btn {
-            border: 2px solid #ff0077;
-            box-shadow: 0 0 15px rgba(255, 0, 119, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
         #app-division .scroll-btn:hover {
-            background: #ff0077;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+        }
+        #app-division .main-hire-btn {
+            background: linear-gradient(135deg, #ff0077, #aa0055);
             color: #fff;
+            box-shadow: 0 0 20px rgba(255, 0, 119, 0.3);
+        }
+        #app-division .main-hire-btn:hover {
             box-shadow: 0 0 35px rgba(255, 0, 119, 0.7);
         }
         #app-division .feature-box:hover {
@@ -238,12 +310,18 @@
             text-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
         }
         #game-division .scroll-btn {
-            border: 2px solid #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
         #game-division .scroll-btn:hover {
-            background: #d4af37;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #fff;
+        }
+        #game-division .main-hire-btn {
+            background: linear-gradient(135deg, #d4af37, #aa8515);
             color: #040407;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        #game-division .main-hire-btn:hover {
             box-shadow: 0 0 35px rgba(212, 175, 55, 0.7);
         }
         #game-division .feature-box:hover {
@@ -257,8 +335,12 @@
         /* Mobile Screen Media Adaptation */
         @media (max-width: 768px) {
             .page-section h1 { font-size: 2.8rem; }
-            header { padding: 15px 20px; }
+            header { padding: 12px 20px; }
             .nav-links { display: none; }
+            .hire-nav-btn span { display: none; } /* Shrinks text on mobile layout to save space */
+            .hire-nav-btn { padding: 8px 14px; }
+            .cta-group { flex-direction: column; width: 100%; gap: 15px; }
+            .main-hire-btn, .scroll-btn { width: 100%; text-align: center; }
         }
 
         /* Footer Element */
@@ -275,20 +357,23 @@
 </head>
 <body>
 
-    <!-- Header Navigation Area with Embedded Glowing Crown Crest Logo -->
     <header>
         <a href="#web-division" class="brand-logo">
             <span class="brand-icon">👑</span>
             <div class="logo-text">Throne <span>Empire</span></div>
         </a>
-        <div class="nav-links">
-            <a href="#web-division">Websites</a>
-            <a href="#app-division">Apps</a>
-            <a href="#game-division">Games</a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#web-division">Websites</a>
+                <a href="#app-division">Apps</a>
+                <a href="#game-division">Games</a>
+            </div>
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20Throne%20Empire,%20I'd%20like%20to%20hire%20you%20for%20a%20project!" target="_blank" class="hire-nav-btn">
+                💬 <span>Hire Us</span>
+            </a>
         </div>
     </header>
 
-    <!-- DIVISION 1: WEBSITES -->
     <section id="web-division" class="page-section">
         <h1>Next-Gen Websites</h1>
         <p>We build ultra-fast, incredibly cool web systems. No clunky code, no generic templates. We deliver lightning-fast loading speeds, custom interface architectures, and high-performance digital spaces designed to turn visitors into active clients instantly.</p>
@@ -304,10 +389,12 @@
             </div>
         </div>
 
-        <a href="#app-division" class="scroll-btn">Scroll to App Division ↓</a>
+        <div class="cta-group">
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20Throne%20Empire,%20I'm%20interested%20in%20a%20Next-Gen%20Website!" target="_blank" class="main-hire-btn">Hire Our Team</a>
+            <a href="#app-division" class="scroll-btn">App Division ↓</a>
+        </div>
     </section>
 
-    <!-- DIVISION 2: MOBILE APPLICATIONS -->
     <section id="app-division" class="page-section">
         <h1>High-End Native Apps</h1>
         <p>From streamlined business applications to complex interactive consumer tools, we engineer iOS and Android platforms that handle scaling naturally. We blend clean graphic design with fast processing algorithms to create apps that feel amazing to operate.</p>
@@ -323,10 +410,12 @@
             </div>
         </div>
 
-        <a href="#game-division" class="scroll-btn">Scroll to Game Studio ↓</a>
+        <div class="cta-group">
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20Throne%20Empire,%20I'm%20interested%20in%20a%20Mobile%20App!" target="_blank" class="main-hire-btn">Launch Your App</a>
+            <a href="#game-division" class="scroll-btn">Game Studio ↓</a>
+        </div>
     </section>
 
-    <!-- DIVISION 3: GAME STUDIO -->
     <section id="game-division" class="page-section">
         <h1>Elite Game Production</h1>
         <p>Enter our digital sandbox. We code high-fidelity 2D and 3D cross-platform games. Built directly on top of modern rendering engines, our systems provide instant control responses, rich graphic textures, and addictive gaming cycles.</p>
@@ -342,10 +431,12 @@
             </div>
         </div>
 
-        <a href="#web-division" class="scroll-btn" style="border-color: #fff;">Return to Top ↑</a>
+        <div class="cta-group">
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20Throne%20Empire,%20I'm%20interested%20in%20Game%20Production!" target="_blank" class="main-hire-btn">Start Production</a>
+            <a href="#web-division" class="scroll-btn" style="border-color: rgba(255,255,255,0.2);">Return to Top ↑</a>
+        </div>
     </section>
 
-    <!-- Footer System -->
     <footer>
         <p>&copy; 2026 Throne Empire Development Labs. Rapid Timelines. Flawless Design. Supreme Code Architecture.</p>
     </footer>
