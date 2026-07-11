@@ -3,18 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Throne Empire | Enterprise Web Systems, Cloud Applications & Interactive Media</title>
+    <title>Throne Empire | Next-Gen Web, Apps & Games</title>
     
-    <!-- 👑 ENTERPRISE BRAND ASSETS -->
+    <!-- 👑 FAVICON -->
     <link rel="icon" type="image/png" href="https://img.icons8.com/neon/96/crown.png">
     
     <style>
-        /* Enterprise Styling Framework */
+        /* Modern CSS Resets & Variable Tokens */
+        :root {
+            --bg-base: #040407;
+            --bg-surface: #0b0b13;
+            --text-main: #e2e2e9;
+            --text-muted: #8a8a99;
+            --cyan: #00f3ff;
+            --pink: #ff0077;
+            --gold: #d4af37;
+            --font-stack: 'Segoe UI', Roboto, -apple-system, sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+            font-family: var(--font-stack);
             -webkit-font-smoothing: antialiased;
         }
 
@@ -23,30 +34,16 @@
         }
 
         body {
-            background-color: #030305;
-            color: #e2e2e9;
+            background-color: var(--bg-base);
+            color: var(--text-main);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Ambient Production Grid Overlay */
-        .led-grid-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.003) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.003) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Premium Floating Navigation Header */
+        /* Fixed Premium Navigation Header */
         header {
-            background-color: rgba(3, 3, 5, 0.85);
-            padding: 16px 50px;
+            background-color: rgba(4, 4, 7, 0.85);
+            padding: 16px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -54,23 +51,11 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #00f3ff, #ff0077, #d4af37, transparent);
-            opacity: 0.5;
-        }
-
-        /* Brand Typography Archetype */
         .brand-logo {
             display: flex;
             align-items: center;
@@ -79,109 +64,46 @@
         }
 
         .brand-icon {
-            font-size: 1.5rem;
-            filter: drop-shadow(0 0 10px #d4af37);
-            display: inline-block;
-            transition: transform 0.3s ease;
+            font-size: 1.6rem;
+            filter: drop-shadow(0 0 8px var(--gold));
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .brand-logo:hover .brand-icon {
-            transform: scale(1.1) rotate(3deg);
+            transform: scale(1.15) rotate(8deg);
         }
 
         .logo-text {
             color: #fff;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 900;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .logo-text span {
-            color: #d4af37;
-        }
-
-        /* Navigation Arrays & Node Controls */
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 35px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
+            color: var(--gold);
         }
 
         .nav-links a {
-            color: #8c8c9e;
+            color: var(--text-muted);
             text-decoration: none;
+            margin-left: 28px;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            transition: all 0.2s ease;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
         
         .nav-links a:hover { 
-            color: #fff;
+            color: #fff; 
         }
+        .nav-links a.link-web:hover { text-shadow: 0 0 10px var(--cyan); }
+        .nav-links a.link-app:hover { text-shadow: 0 0 10px var(--pink); }
+        .nav-links a.link-game:hover { text-shadow: 0 0 10px var(--gold); }
 
-        /* Real-Time Infrastructure Status LED */
-        .system-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.75rem;
-            color: #00ff88;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            background: rgba(0, 255, 136, 0.05);
-            padding: 6px 12px;
-            border-radius: 4px;
-            border: 1px solid rgba(0, 255, 136, 0.15);
-        }
-
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            background-color: #00ff88;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #00ff88;
-            animation: pulse-led 2s infinite;
-        }
-
-        @keyframes pulse-led {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
-        }
-
-        /* Premium Action Matrix Controller */
-        .hire-nav-btn {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
-            color: #d4af37;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 10px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .hire-nav-btn:hover {
-            background: #d4af37;
-            color: #030305;
-            border-color: #d4af37;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
-            transform: translateY(-1px);
-        }
-
-        /* Full Height Modular Section Blueprints */
+        /* Full Height Layout Sections */
         .page-section {
             min-height: 100vh;
             display: flex;
@@ -189,534 +111,285 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 160px 40px 120px 40px;
+            padding: 140px 24px 100px 24px;
             position: relative;
-            z-index: 2;
         }
 
         .section-tag {
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             font-weight: 800;
             margin-bottom: 16px;
-            color: #8c8c9e;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .page-section h1 {
             font-size: 4.2rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             margin-bottom: 24px;
             font-weight: 900;
             line-height: 1.1;
         }
 
-        .page-section p {
+        .page-section p.section-desc {
             font-size: 1.2rem;
-            max-width: 780px;
-            color: #9494a6;
-            margin-bottom: 45px;
-            line-height: 1.75;
-        }
-
-        /* Enterprise Performance Metrics Layer */
-        .metrics-bar {
-            display: flex;
-            gap: 50px;
+            max-width: 760px;
+            color: #a0a0b0;
             margin-bottom: 50px;
-            justify-content: center;
-            flex-wrap: wrap;
-            border-top: 1px solid rgba(255,255,255,0.03);
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            padding: 24px 0;
-            width: 100%;
-            max-width: 900px;
+            line-height: 1.8;
         }
 
-        .metric-item text {
-            display: block;
-        }
-        .metric-num {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: -0.5px;
-        }
-        .metric-lbl {
-            font-size: 0.75rem;
-            color: #656578;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            margin-top: 4px;
-        }
-
-        /* Feature Matrix Systems */
+        /* Advanced Grid Matrix Setup */
         .grid-features {
-            display: flex;
-            gap: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
             max-width: 1100px;
             width: 100%;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 55px;
+            margin-bottom: 60px;
         }
 
         .feature-box {
-            background: rgba(11, 11, 17, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 6px;
-            flex: 1;
-            min-width: 320px;
+            background: var(--bg-surface);
+            padding: 45px 40px;
+            border-radius: 12px;
             text-align: left;
             border: 1px solid rgba(255, 255, 255, 0.03);
             position: relative;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .feature-box:hover {
-            transform: translateY(-4px);
-            background: rgba(15, 15, 24, 0.6);
+            transform: translateY(-8px);
         }
 
         .feature-box h3 {
-            font-size: 1.35rem;
-            margin-bottom: 12px;
+            font-size: 1.4rem;
+            margin-bottom: 14px;
             color: #fff;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .feature-box p {
-            font-size: 0.95rem;
-            color: #838394;
-            margin-bottom: 0;
-            line-height: 1.6;
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            line-height: 1.7;
         }
 
-        /* Global Control Configurations */
-        .cta-group {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
+        /* Premium Micro-Action Call buttons */
         .scroll-btn {
             display: inline-block;
             background: transparent;
-            color: #7c7c8e;
-            padding: 15px 35px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .scroll-btn:hover {
             color: #fff;
-        }
-
-        .main-hire-btn {
-            display: inline-block;
-            padding: 16px 40px;
-            border-radius: 4px;
+            padding: 15px 40px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-size: 0.85rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .main-hire-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 40%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-            transition: all 0.5s ease;
-        }
-        .main-hire-btn:hover::before {
-            left: 200%;
         }
 
-        .main-hire-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* DIVISION THEMES & SPECIFIC NEON CORE ARCHITECTURE */
+        /* DIVISION THEME CONFIGURATIONS */
         
-        /* SECTION 1: WEBSITES (Neon Cyan) */
+        /* WEB TEAM (Cyan) */
         #web-division {
-            background: radial-gradient(circle at 50% 25%, rgba(0, 243, 255, 0.05) 0%, #030305 65%);
+            background: radial-gradient(circle at 50% 30%, #071522 0%, var(--bg-base) 70%);
         }
-        #web-division .section-tag { color: #00f3ff; }
+        #web-division .section-tag { color: var(--cyan); }
         #web-division h1 {
             color: #fff;
-            text-shadow: 0 0 35px rgba(0, 243, 255, 0.3);
+            text-shadow: 0 0 40px rgba(0, 243, 255, 0.2);
         }
-        #web-division .main-hire-btn {
-            background: #00f3ff;
-            color: #030305;
-            box-shadow: 0 0 25px rgba(0, 243, 255, 0.25);
+        #web-division .scroll-btn {
+            border: 2px solid var(--cyan);
+            box-shadow: 0 4px 20px rgba(0, 243, 255, 0.15);
         }
-        #web-division .main-hire-btn:hover {
+        #web-division .scroll-btn:hover {
+            background: var(--cyan);
+            color: var(--bg-base);
             box-shadow: 0 0 35px rgba(0, 243, 255, 0.5);
         }
         #web-division .feature-box:hover {
-            border-color: rgba(0, 243, 255, 0.25);
-            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.08);
+            border-color: rgba(0, 243, 255, 0.3);
+            box-shadow: 0 12px 40px rgba(0, 243, 255, 0.1);
         }
         #web-division .feature-box::after {
-            content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; 
-            background: #00f3ff; box-shadow: 0 0 8px #00f3ff;
+            content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 3px; background: var(--cyan);
         }
 
-        /* SECTION 2: MOBILE APPS (Hot Pink) */
+        /* MOBILE APP TEAM (Hot Pink) */
         #app-division {
-            background: radial-gradient(circle at 50% 25%, rgba(255, 0, 119, 0.04) 0%, #030305 65%);
-            border-top: 1px solid rgba(255,255,255,0.02);
+            background: radial-gradient(circle at 50% 30%, #220716 0%, var(--bg-base) 70%);
+            border-top: 1px solid rgba(255, 0, 119, 0.05);
         }
-        #app-division .section-tag { color: #ff0077; }
+        #app-division .section-tag { color: var(--pink); }
         #app-division h1 {
             color: #fff;
-            text-shadow: 0 0 35px rgba(255, 0, 119, 0.3);
+            text-shadow: 0 0 40px rgba(255, 0, 119, 0.2);
         }
-        #app-division .main-hire-btn {
-            background: #ff0077;
+        #app-division .scroll-btn {
+            border: 2px solid var(--pink);
+            box-shadow: 0 4px 20px rgba(255, 0, 119, 0.15);
+        }
+        #app-division .scroll-btn:hover {
+            background: var(--pink);
             color: #fff;
-            box-shadow: 0 0 25px rgba(255, 0, 119, 0.25);
-        }
-        #app-division .main-hire-btn:hover {
             box-shadow: 0 0 35px rgba(255, 0, 119, 0.5);
         }
         #app-division .feature-box:hover {
-            border-color: rgba(255, 0, 119, 0.25);
-            box-shadow: 0 10px 30px rgba(255, 0, 119, 0.08);
+            border-color: rgba(255, 0, 119, 0.3);
+            box-shadow: 0 12px 40px rgba(255, 0, 119, 0.1);
         }
         #app-division .feature-box::after {
-            content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; 
-            background: #ff0077; box-shadow: 0 0 8px #ff0077;
+            content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 3px; background: var(--pink);
         }
 
-        /* SECTION 3: GAME STUDIO (Cyber Gold) */
+        /* GAME STUDIO (Cyber Gold) */
         #game-division {
-            background: radial-gradient(circle at 50% 25%, rgba(212, 175, 55, 0.04) 0%, #030305 65%);
-            border-top: 1px solid rgba(255,255,255,0.02);
+            background: radial-gradient(circle at 50% 30%, #1c1405 0%, var(--bg-base) 70%);
+            border-top: 1px solid rgba(212, 175, 55, 0.05);
         }
-        #game-division .section-tag { color: #d4af37; }
+        #game-division .section-tag { color: var(--gold); }
         #game-division h1 {
             color: #fff;
-            text-shadow: 0 0 35px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
         }
-        #game-division .main-hire-btn {
-            background: #d4af37;
-            color: #030305;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+        #game-division .scroll-btn {
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
         }
-        #game-division .main-hire-btn:hover {
+        #game-division .scroll-btn:hover {
+            background: var(--gold);
+            color: var(--bg-base);
             box-shadow: 0 0 35px rgba(212, 175, 55, 0.5);
         }
         #game-division .feature-box:hover {
-            border-color: rgba(212, 175, 55, 0.25);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.08);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.1);
         }
         #game-division .feature-box::after {
-            content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; 
-            background: #d4af37; box-shadow: 0 0 8px #d4af37;
+            content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 3px; background: var(--gold);
         }
 
-        /* Enterprise Trusted Industries Banner */
-        .trusted-ticker {
-            width: 100%;
-            background: #06060a;
-            padding: 20px 0;
-            border-top: 1px solid rgba(255,255,255,0.02);
-            border-bottom: 1px solid rgba(255,255,255,0.02);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            z-index: 2;
-            position: relative;
-        }
-        .ticker-title {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #4a4a5a;
-            font-weight: 800;
-        }
-        .ticker-item {
-            font-size: 0.85rem;
-            color: #5d5d70;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        /* Media Responsiveness Controllers */
-        @media (max-width: 992px) {
-            header { padding: 16px 30px; }
-            .nav-links, .system-status { display: none; }
-            .page-section h1 { font-size: 3rem; }
-            .metrics-bar { gap: 30px; }
-        }
-
+        /* Mobile Screen Media Adaptation */
         @media (max-width: 768px) {
-            .page-section { padding: 140px 20px 80px 20px; }
-            .page-section h1 { font-size: 2.4rem; }
-            .page-section p { font-size: 1.05rem; margin-bottom: 35px; }
-            .cta-group { flex-direction: column; width: 100%; gap: 12px; }
-            .main-hire-btn, .scroll-btn { width: 100%; text-align: center; }
-            .trusted-ticker { gap: 20px; padding: 20px; }
+            header { padding: 15px 24px; }
+            .nav-links { display: none; }
+            .page-section { padding: 120px 20px 80px 20px; }
+            .page-section h1 { font-size: 2.6rem; }
+            .page-section p.section-desc { font-size: 1.05rem; margin-bottom: 35px; }
+            .grid-features { grid-template-columns: 1fr; gap: 20px; }
+            .feature-box { padding: 35px 30px; }
         }
 
-        /* Formal Corporate Footer Structural Map */
+        /* Premium Studio Footer */
         footer {
-            background-color: #010102;
-            color: #555566;
-            padding: 80px 40px 40px 40px;
-            font-size: 0.8rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.02);
-            position: relative;
-            z-index: 2;
+            background-color: #020204;
+            color: #555562;
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid #0c0c12;
+            letter-spacing: 0.8px;
         }
-        .footer-grid {
-            max-width: 1100px;
-            margin: 0 auto 50px auto;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-            text-align: left;
-        }
-        .footer-col h4 {
-            color: #9494a6;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.8rem;
-            margin-bottom: 16px;
-        }
-        .footer-col p {
-            max-width: 280px;
-            line-height: 1.6;
-            color: #555566;
-        }
-        .footer-col ul {
-            list-style: none;
-        }
-        .footer-col ul li {
-            margin-bottom: 8px;
-        }
-        .footer-col ul li a {
-            color: #555566;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        .footer-col ul li a:hover { color: #fff; }
-        .footer-bottom {
-            max-width: 1100px;
+        
+        footer p {
+            max-width: 600px;
             margin: 0 auto;
-            border-top: 1px solid rgba(255,255,255,0.02);
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
-    <!-- Production Grid Network Layer -->
-    <div class="led-grid-bg"></div>
-
-    <!-- Corporate Navigation Assembly -->
+    <!-- Header Navigation Area with Interactive Glowing Brand Crest -->
     <header>
         <a href="#web-division" class="brand-logo">
             <span class="brand-icon">👑</span>
             <div class="logo-text">Throne <span>Empire</span></div>
         </a>
-        <div class="nav-right">
-            <div class="system-status">
-                <div class="status-dot"></div>
-                Systems Operational
-            </div>
-            <div class="nav-links">
-                <a href="#web-division">Web Engineering</a>
-                <a href="#app-division">Cloud Apps</a>
-                <a href="#game-division">Game Engine</a>
-            </div>
-            <!-- 📞 ENTERPRISE COMMUNICATIONS NODE -->
-            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20Throne%20Empire%20Labs,%20we%20would%20like%20to%20retain%20your%20services%20for%20an%20enterprise%20project." target="_blank" class="hire-nav-btn">
-                Initiate Project
-            </a>
-        </div>
+        <nav class="nav-links">
+            <a href="#web-division" class="link-web">Web+Core</a>
+            <a href="#app-division" class="link-app">Native Apps</a>
+            <a href="#game-division" class="link-game">Game Engine</a>
+        </nav>
     </header>
 
-    <!-- SECTION 1: WEBSITES (Neon Cyan Core) -->
+    <!-- DIVISION 1: WEBSITES -->
     <section id="web-division" class="page-section">
-        <div class="section-tag">Division 01 // Systems</div>
-        <h1>Enterprise Web Systems</h1>
-        <p>We build high-capacity, lightning-fast web infrastructure. No templates, no technical debt. We deliver millisecond-level boot speeds, bespoke interface pipelines, and robust security frameworks structured to scale operations effortlessly.</p>
+        <div class="section-tag">Division 01 // Web Architecture</div>
+        <h1>Next-Gen Websites</h1>
+        <p class="section-desc">We build ultra-fast, incredibly cool web systems. No clunky code, no generic templates. We deliver lightning-fast loading speeds, custom interface architectures, and high-performance digital spaces designed to turn visitors into active clients instantly.</p>
         
-        <div class="metrics-bar">
-            <div class="metric-item">
-                <span class="metric-num">99.99%</span>
-                <span class="metric-lbl">Target Uptime Guarantee</span>
-            </div>
-            <div class="metric-item">
-                <span class="metric-num">&lt; 1.2s</span>
-                <span class="metric-lbl">Average Core Initial Load</span>
-            </div>
-            <div class="metric-item">
-                <span class="metric-num">A+</span>
-                <span class="metric-lbl">SSL Security Rating</span>
-            </div>
-        </div>
-
         <div class="grid-features">
             <div class="feature-box">
-                <h3>⚡ Clean Velocity Engines</h3>
-                <p>Engineered without bloated packages. Pure, perfectly structured rendering architectures designed to load instantaneously across global network environments.</p>
+                <h3><span>⚡</span> Velocity Engines</h3>
+                <p>We program perfectly optimized clean structures, guaranteeing your web platform boots instantly across desktop monitors and mobile devices alike.</p>
             </div>
             <div class="feature-box">
-                <h3>🎨 Bespoke Visual Systems</h3>
-                <p>Fluid, state-driven interfaces mapped with precise user journeys and polished interactions that secure corporate authority instantly.</p>
+                <h3><span>🎨</span> Premium Visual Layouts</h3>
+                <p>Packed with smooth reactive animations, immersive layout components, and a flawless look that commands immediate authority.</p>
             </div>
         </div>
 
-        <div class="cta-group">
-            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20Throne%20Empire,%20I%27m%20interested%20in%20deploying%20a%20Next-Gen%20Web%20System." target="_blank" class="main-hire-btn">Retain Our Studio</a>
-            <a href="#app-division" class="scroll-btn">View App Framework ↓</a>
-        </div>
+        <a href="#app-division" class="scroll-btn">Deploy App Studio ↓</a>
     </section>
 
-    <!-- Trusted Logistics Industries Banner -->
-    <div class="trusted-ticker">
-        <div class="ticker-title">Active Verticals</div>
-        <div class="ticker-item">Fintech Systems</div>
-        <div class="ticker-item">E-Commerce Networks</div>
-        <div class="ticker-item">SaaS Frameworks</div>
-        <div class="ticker-item">Web3 Engineering</div>
-    </div>
-
-    <!-- SECTION 2: MOBILE APPLICATIONS (Hot Pink Core) -->
+    <!-- DIVISION 2: MOBILE APPLICATIONS -->
     <section id="app-division" class="page-section">
-        <div class="section-tag">Division 02 // Mobility</div>
-        <h1>High-End Architecture Apps</h1>
-        <p>From distributed back-office management frameworks to responsive consumer interfaces, we build native iOS and Android ecosystems with clean graphic rendering and rapid async database synchronization pools.</p>
+        <div class="section-tag">Division 02 // Application System</div>
+        <h1>High-End Native Apps</h1>
+        <p class="section-desc">From streamlined business applications to complex interactive consumer tools, we engineer iOS and Android platforms that handle scaling naturally. We blend clean graphic design with fast processing algorithms to create apps that feel amazing to operate.</p>
         
-        <div class="metrics-bar">
-            <div class="metric-item">
-                <span class="metric-num">Zero</span>
-                <span class="metric-lbl">Memory Leak Pipelines</span>
-            </div>
-            <div class="metric-item">
-                <span class="metric-num">Native</span>
-                <span class="metric-lbl">Cross-Platform Buildout</span>
-            </div>
-            <div class="metric-item">
-                <span class="metric-num">Secure</span>
-                <span class="metric-lbl">AES-256 Data Enclaves</span>
-            </div>
-        </div>
-
         <div class="grid-features">
             <div class="feature-box">
-                <h3>🛠️ High-Fluid Usability</h3>
-                <p>Tailored logic trees built for low latency response times, tactile interface feedback loops, and intuitive navigational components.</p>
+                <h3><span>🛠️</span> Zero-Drag Usability</h3>
+                <p>We build user interfaces tailored specifically for fluid finger navigation, fast page switching, and beautifully clear system layouts.</p>
             </div>
             <div class="feature-box">
-                <h3>🔒 Resilient Backend Nodes</h3>
-                <p>Backed by structured server-side API environments, isolated authentication handlers, and multi-region database fallback safety protocols.</p>
+                <h3><span>🔒</span> Ironclad Infrastructure</h3>
+                <p>Every single mobile app build is surrounded by robust, rapid server configurations to keep your data flowing safely without operational crashes.</p>
             </div>
         </div>
 
-        <div class="cta-group">
-            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20Throne%20Empire,%20I%27m%20interested%20in%20building%20a%20High-End%20Native%20App." target="_blank" class="main-hire-btn">Deploy Core Application</a>
-            <a href="#game-division" class="scroll-btn">View Interactive Studio ↓</a>
-        </div>
+        <a href="#game-division" class="scroll-btn">Initialize Game Build ↓</a>
     </section>
 
-    <!-- SECTION 3: GAME STUDIO (Cyber Gold Core) -->
+    <!-- DIVISION 3: GAME STUDIO -->
     <section id="game-division" class="page-section">
-        <div class="section-tag">Division 03 // Interactive</div>
-        <h1>High-Fidelity Game Engines</h1>
-        <p>Bespoke 2D and 3D cross-platform game systems engineered directly on top of lightweight rendering layers. Highly stable frame processing matrices, tight hit-box mechanics, and dynamic netcode layers built for scaling lobbies.</p>
+        <div class="section-tag">Division 03 // Real-Time Engines</div>
+        <h1>Elite Game Production</h1>
+        <p class="section-desc">Enter our digital sandbox. We code high-fidelity 2D and 3D cross-platform games. Built directly on top of modern rendering engines, our systems provide instant control responses, rich graphic textures, and addictive gaming cycles.</p>
         
-        <div class="metrics-bar">
-            <div class="metric-item">
-                <span class="metric-num">60 FPS</span>
-                <span class="metric-lbl">Mobile Targets Sustained</span>
-            </div>
-            <div class="metric-item">
-                <span class="metric-num">&lt; 30ms</span>
-                <span class="metric-lbl">Netcode Server Input Sync</span>
-            </div>
-            <div class="metric-item">
-                <span class="metric-num">Custom</span>
-                <span class="metric-lbl">Asset Shader Pipelines</span>
-            </div>
-        </div>
-
         <div class="grid-features">
             <div class="feature-box">
-                <h3>🎮 Low-Latency Interactions</h3>
-                <p>Optimized execution threads isolate frame draw pipelines from input processing loops, yielding zero lag spikes and pixel-perfect mechanics.</p>
+                <h3><span>🎮</span> Frame-Optimized Actions</h3>
+                <p>We clear out latency bottlenecks completely to give players highly stable frames-per-second, crisp collision hitboxes, and lag-free inputs.</p>
             </div>
             <div class="feature-box">
-                <h3>✨ Immersive Simulation Networks</h3>
-                <p>Unforgettable environmental depth profiles, balanced game-loop scripts, and secure real-time server frameworks that block network exploits.</p>
+                <h3><span>✨</span> Deep Virtual Worlds</h3>
+                <p>We create unforgettable atmospheric environments, smooth reward loops, and sturdy online netcode frameworks built to keep game lobbies packed.</p>
             </div>
         </div>
 
-        <div class="cta-group">
-            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%20Throne%20Empire,%20we%20want%20to%20discuss%20an%20Interactive%20Game%20Production%20build." target="_blank" class="main-hire-btn">Commission Game Studio</a>
-            <a href="#web-division" class="scroll-btn">Return to Infrastructure ↑</a>
-        </div>
+        <a href="#web-division" class="scroll-btn" style="border-color: #fff;">System Return Top ↑</a>
     </section>
 
-    <!-- Formal Corporate Footer Map -->
+    <!-- Studio Footer Element -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Throne Empire</h4>
-                <p>Next-generation software engineering consortium. We design, deploy, and maintain hyper-efficient digital infrastructure for modern commercial enterprises.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Architecture Divisions</h4>
-                <ul>
-                    <li><a href="#web-division">Web Systems Engineering</a></li>
-                    <li><a href="#app-division">Cloud Native Applications</a></li>
-                    <li><a href="#game-division">Immersive Media & Games</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Retainer Contracts</h4>
-                <ul>
-                    <li><a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank">Schedule Infrastructure Review</a></li>
-                    <li><a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank">Emergency SLA Response</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Throne Empire Development Labs. All Rights Reserved. Clean Execution. Sovereign Systems.</p>
-            <p style="color: #333344;">Encryption Layer Active // ISO-27001 Compliant Architecture Standards</p>
-        </div>
+        <p>&copy; 2026 Throne Empire Development Labs. <br>Rapid Timelines. Flawless Design. Supreme Code Architecture.</p>
     </footer>
 
 </body>
